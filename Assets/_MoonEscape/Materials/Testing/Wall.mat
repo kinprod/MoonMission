@@ -78,6 +78,6 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 0.048252463, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Tilling: {r: 1, g: 1, b: 0, a: 0}
+    - _Tilling: {r: 1, g: 6, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

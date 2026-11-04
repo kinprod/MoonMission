@@ -25,6 +25,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "MousePositon",
+                    "type": "Value",
+                    "id": "eac9d828-eccb-459b-9f9d-a612ad4d6e86",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -69,6 +79,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Attract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a32a117-0496-4100-913e-c5d4d3622a26",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePositon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
