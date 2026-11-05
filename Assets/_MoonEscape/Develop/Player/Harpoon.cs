@@ -57,7 +57,7 @@ public class Harpoon : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "InteractionObject")
+        if (collision.gameObject.tag == "InteractiveObject")
         {
             _interactionObject = collision.gameObject;
         }
