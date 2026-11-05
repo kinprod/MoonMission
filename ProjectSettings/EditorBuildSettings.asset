@@ -5,8 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Project/Bootstrap.unity
+    guid: d68bead984d63ed4e98f64ff7678e279
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Project/Empty.unity
+    guid: 65be9294081002047b752f161e4fbb3e
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Project/Gameplay.unity
+    guid: d366a94615ee94d4da605f741ab2e29d
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Project/Loading.unity
+    guid: d8c02f68c937b6549a3eb8236b158dca
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Project/MainMenu.unity
+    guid: c704b4e5e300b6d49b053a5e660fecf0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
