@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class RandomInteraction : IInteractive
+namespace Interaction
 {
-    Vector2 IInteractive.InteractDirection(Collision2D collision2D, Vector2 objectDirection)
+    public class RandomInteraction : IInteractive
     {
-        throw new System.NotImplementedException();
+        Vector2 IInteractive.InteractDirection(Collision2D collision2D, Vector2 objectDirection)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

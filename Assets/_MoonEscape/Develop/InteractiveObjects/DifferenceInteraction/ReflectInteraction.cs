@@ -1,13 +1,16 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ReflectInteraction : IInteractive
+namespace Interaction
 {
-    Vector2 IInteractive.InteractDirection(Collision2D collision2D, Vector2 objectDirection)
+    public class ReflectInteraction : IInteractive
     {
-        var collisionNormal = collision2D.contacts[0].normal;
-        var reflectedDireciton = Vector2.Reflect(objectDirection, collisionNormal);
+        Vector2 IInteractive.InteractDirection(Collision2D collision2D, Vector2 objectDirection)
+        {
+            var collisionNormal = collision2D.contacts[0].normal;
+            var reflectedDireciton = Vector2.Reflect(objectDirection, collisionNormal);
 
-        return reflectedDireciton;
+            return reflectedDireciton;
+        }
     }
 }

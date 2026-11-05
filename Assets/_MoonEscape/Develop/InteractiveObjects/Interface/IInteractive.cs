@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public interface IInteractive
+namespace Interaction
 {
-    public Vector2 InteractDirection(Collision2D collision2D, Vector2 objectDirection);
+    public interface IInteractive
+    {
+        public Vector2 InteractDirection(Collision2D collision2D, Vector2 objectDirection);
+    }
 }
