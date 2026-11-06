@@ -8,7 +8,6 @@ using VContainer.Unity;
 
 namespace Interaction
 {
-
     enum Interaction
     {
         Reflect,
@@ -96,12 +95,12 @@ namespace Interaction
         {
             if (_flySpeed > 0.5f && _rigidbody.linearVelocity != Vector2.zero)
             {
-                StopInMove().Forget();
+                StopInMove();
             }
         }
 
 
-        private async UniTaskVoid StopInMove()
+        private void StopInMove()
         {
             if (_stopTask.Status == UniTaskStatus.Succeeded)
             {
