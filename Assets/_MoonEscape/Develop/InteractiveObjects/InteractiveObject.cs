@@ -96,12 +96,12 @@ namespace Interaction
         {
             if (_flySpeed > 0.5f && _rigidbody.linearVelocity != Vector2.zero)
             {
-                StopInMove();
+                StopInMove().Forget();
             }
         }
 
 
-        private async void StopInMove()
+        private async UniTaskVoid StopInMove()
         {
             if (_stopTask.Status == UniTaskStatus.Succeeded)
             {

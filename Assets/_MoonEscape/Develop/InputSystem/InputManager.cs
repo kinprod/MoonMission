@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -18,19 +19,15 @@ namespace GameInputActions
         private InputAction _shot;
         private InputAction _attract;
 
-        
-        private void Awake()
+
+        private void OnEnable()
         {
             _inputActions = new GameActions();
             _inputActions.Enable();
 
             _shot = _inputActions.Gameplay.Shot;
             _attract = _inputActions.Gameplay.Attract;
-        }
 
-
-        private void OnEnable()
-        {
             _shot.performed += ShotPerformed;
             _shot.canceled += ShotCanceled;
             _attract.performed += AttractPerformed;
@@ -45,7 +42,6 @@ namespace GameInputActions
             _attract.performed -= AttractPerformed;
             _attract.canceled -= AttractCanceled;
         }
-
 
         private void ShotPerformed(InputAction.CallbackContext context)
         {
@@ -69,5 +65,6 @@ namespace GameInputActions
         {
             AttractCanceledAction?.Invoke();
         }
+
     }
 }
