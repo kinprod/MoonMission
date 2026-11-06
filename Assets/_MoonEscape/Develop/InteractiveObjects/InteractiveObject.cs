@@ -2,6 +2,7 @@ using GameInputActions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VContainer;
+using VContainer.Unity;
 
 public class InteractiveObject : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class InteractiveObject : MonoBehaviour
 
     [SerializeField]
     private Rigidbody2D _rigidbody;
+    [SerializeField]
+    private LifetimeScope _container;
     [SerializeField]
     private float _flySpeed = 0.1f;
 
@@ -24,6 +27,12 @@ public class InteractiveObject : MonoBehaviour
     {
         _inputManager = inputManager;
         _interaction = new ReflectInteraction();
+    }
+
+
+    private void Awake()
+    {
+        _container.Container.Inject(this);
     }
 
 
