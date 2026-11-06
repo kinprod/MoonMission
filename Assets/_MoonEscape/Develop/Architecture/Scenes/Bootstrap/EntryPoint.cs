@@ -7,10 +7,11 @@ using VContainer.Unity;
 
 namespace Scenes
 {
-    public class EntryPoint : MonoBehaviour
+    public class EntryPoint
     {
         [SerializeField]
         private LifetimeScope _rootContainer;
+        private LifetimeScope _childContainer;
         private static EntryPoint _instance;
 
 
@@ -59,8 +60,11 @@ namespace Scenes
             await LoadScene(Scenes.LOADING);
             await LoadScene(Scenes.GAMEPLAY);
 
+            _childContainer.Dispose();
+            LifetimeScope childContainer = _childContainer = _rootContainer.CreateChild();
+
             var sceneEntryPoint = Object.FindAnyObjectByType<GameplayEntryPoint>();
-            sceneEntryPoint.Run();
+            sceneEntryPoint.Run(childContainer);
         }
 
 
