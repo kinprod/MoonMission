@@ -233,6 +233,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
+      propertyPath: _container
+      value: 
+      objectReference: {fileID: 128214876}
     - target: {fileID: 5344648169772387911, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: m_Name
       value: InteractiveObject3
@@ -1001,6 +1005,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
+      propertyPath: _container
+      value: 
+      objectReference: {fileID: 128214876}
     - target: {fileID: 5344648169772387911, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: m_Name
       value: InteractiveObject2
@@ -1186,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
+      propertyPath: _container
+      value: 
+      objectReference: {fileID: 128214876}
     - target: {fileID: 5344648169772387911, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: m_Name
       value: InteractiveObject1
