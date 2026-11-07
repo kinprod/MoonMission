@@ -18,8 +18,6 @@ namespace Interaction
     {
         public Vector2 Direction { get { return _baseDirection; } }
 
-        private InputManager _inputManager;
-
         private static float _stopСoefficient = 0.5f;
 
         [SerializeField]
@@ -27,8 +25,6 @@ namespace Interaction
 
         [SerializeField]
         private Rigidbody2D _rigidbody;
-        [SerializeField]
-        private LifetimeScope _container;
         [SerializeField]
         private float _flySpeed = 0.1f;
 
@@ -40,17 +36,9 @@ namespace Interaction
         private UniTask _stopTask;
 
 
-        [Inject]
-        private void Init(InputManager inputManager)
-        {
-            _inputManager = inputManager;
-        }
-
 
         private void Awake()
         {
-            _container.Container.Inject(this);
-
             if (_interactionType == Interaction.Reflect)
             {
                 _interaction = new ReflectInteraction();
@@ -63,17 +51,6 @@ namespace Interaction
             _baseSpeed = _flySpeed;
         }
 
-
-        private void OnEnable()
-        {
-            _inputManager.ShotPerformedAction += Move;
-        }
-
-
-        private void OnDisable()
-        {
-            _inputManager.ShotPerformedAction -= Move;
-        }
 
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -123,18 +100,5 @@ namespace Interaction
             }
         }
 
-
-        private void Move()
-        {
-            var mousePosition = Mouse.current.position.ReadValue();
-            var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            var mouseWorldPosition2D = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
-
-            _flySpeed = _baseSpeed;
-
-            _rigidbody.linearVelocity = (mouseWorldPosition2D - _rigidbody.position).normalized * _flySpeed;
-            _baseDirection = ((mouseWorldPosition2D - _rigidbody.position) * _flySpeed).normalized;
-
-        }
     }
 }

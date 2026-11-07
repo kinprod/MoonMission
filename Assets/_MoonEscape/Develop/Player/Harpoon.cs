@@ -4,9 +4,13 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VContainer;
+using VContainer.Unity;
 
 public class Harpoon : MonoBehaviour
 {
+    [SerializeField]
+    private LifetimeScope _container;
+
     public delegate void HarpoonPositionObserver(Transform transform);
     public event HarpoonPositionObserver PositionObserver;
 
@@ -25,19 +29,14 @@ public class Harpoon : MonoBehaviour
     private Vector2 _direction;
 
     private bool _inShot = false;
+    private bool _inAttract = false;
 
-
-    [Inject]
-    private void Init(InputManager inputManager)
-    {
-        _inputManager = inputManager;
-        Debug.Log("Harpoon inject");
-    }
 
 
     private void Awake()
     {
         ResetHarpoonParametrs();
+        _inputManager = _container.Container.Resolve<InputManager>();
     }
 
 
@@ -57,6 +56,7 @@ public class Harpoon : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        _inAttract = false;
         if (collision.gameObject.tag == "InteractiveObject")
         {
             _interactionObject = collision.gameObject;
@@ -94,6 +94,7 @@ public class Harpoon : MonoBehaviour
         else
         {
             PositionObserver?.Invoke(_rigidbody.transform);
+            _inAttract = true;
         }
     }
 
@@ -113,9 +114,7 @@ public class Harpoon : MonoBehaviour
     private void ResetHarpoonParametrs()
     {
         _interactionObject = null;
-        gameObject.SetActive(false);
-        gameObject.transform.position = _hand.position;
-        gameObject.SetActive(true);
+        transform.position = _hand.position;
     }
 
 

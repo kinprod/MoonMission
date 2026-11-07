@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 128214876}
+      objectReference: {fileID: 0}
     - target: {fileID: 5344648169772387911, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: m_Name
       value: InteractiveObject3
@@ -294,12 +294,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f2105dcdb0983b41822508e9b853ce8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DI.GameScope
+  m_EditorClassIdentifier: Assembly-CSharp::DI.RootScope
   parentReference:
     TypeName: 
   autoRun: 1
-  autoInjectGameObjects:
-  - {fileID: 819922493}
+  autoInjectGameObjects: []
 --- !u!1 &293929489
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e165532ce2f445b4b9c912c9e41818e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Harpoon
+  _container: {fileID: 128214876}
   _rigidbody: {fileID: 819922496}
   _hand: {fileID: 2106119144}
   _speed: 0.3
@@ -1008,7 +1008,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 128214876}
+      objectReference: {fileID: 0}
     - target: {fileID: 5344648169772387911, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: m_Name
       value: InteractiveObject2
@@ -1197,7 +1197,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 128214876}
+      objectReference: {fileID: 0}
     - target: {fileID: 5344648169772387911, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: m_Name
       value: InteractiveObject1
