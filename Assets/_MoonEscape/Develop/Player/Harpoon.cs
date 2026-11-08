@@ -1,129 +1,87 @@
-﻿using DI;
-using GameInputActions;
+﻿using GameInputActions;
+using Interaction;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VContainer;
 
-public class Harpoon : MonoBehaviour
+namespace Player
 {
-    public delegate void HarpoonPositionObserver(Transform transform);
-    public event HarpoonPositionObserver PositionObserver;
-
-    [SerializeField]
-    private Rigidbody2D _rigidbody;
-    [SerializeField]
-    private Transform _hand;
-
-    [SerializeField]
-    private float _speed = 0.3f;
-
-    private InputManager _inputManager;
-
-    private GameObject _interactionObject = null;
-
-    private Vector2 _direction;
-
-    private bool _inShot = false;
-
-
-    [Inject]
-    private void Init(InputManager inputManager)
+    public class Harpoon : MonoBehaviour
     {
-        _inputManager = inputManager;
-        Debug.Log("Harpoon inject");
-    }
+        public delegate void CollisionWithObject(GameObject targgetObject);
+        public event CollisionWithObject Collision;
+
+        public event Action HartoonReset;
+
+        private Transform _startTransform;
+        private SpriteRenderer _spriteRenderer;
+        private float _maxDistance = 10f;
+        private float _speed = 0.1f;
 
 
-    private void Awake()
-    {
-        ResetHarpoonParametrs();
-    }
+        private bool _inShot = false;
 
-
-    private void OnEnable()
-    {
-        _inputManager.ShotPerformedAction += ShotOrAttract;
-        _inputManager.ShotCanceledAction += ResetHarpoon;
-    }
-
-
-    private void OnDisable()
-    {
-        _inputManager.ShotPerformedAction -= ShotOrAttract;
-        _inputManager.ShotCanceledAction -= ResetHarpoon;
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "InteractiveObject")
+        public void Init(Transform startTransform, SpriteRenderer spriteRenderer, float maxDistance, float speed)
         {
-            _interactionObject = collision.gameObject;
+            _startTransform = startTransform;
+            _spriteRenderer = spriteRenderer;
+            _maxDistance = maxDistance;
+            _speed = speed;
         }
-        else
+
+
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            ResetHarpoonParametrs();
+            _inShot = false;
+            if (collision.collider.tag == "InteractiveObject")
+            {
+                Collision?.Invoke(collision.gameObject);
+            }
+            else
+            {
+                _spriteRenderer.enabled = false;
+                transform.position = _startTransform.position;
+            }
         }
-        _inShot = false;
-    }
 
 
-    private void FixedUpdate()
-    {
-        if (_inShot)
+        private void FixedUpdate()
         {
-            MoveHarpoon();
+            if (_inShot)
+            {
+                transform.Translate(Vector3.up * _speed);
+
+                if ((transform.position - _startTransform.position).magnitude > _maxDistance)
+                {
+                    _inShot = false;
+                    _spriteRenderer.enabled = false;
+                    transform.position = _startTransform.position;
+                    HartoonReset?.Invoke();
+                }
+            }
         }
-    }
 
-
-    private void MoveHarpoon()
-    {
-        _rigidbody.position += _direction * _speed;
-        Debug.DrawRay(_hand.position, _direction * 100, Color.green);
-    }
-
-
-    private void ShotOrAttract()
-    {
-        if (_interactionObject == null)
+        public void Shot()
         {
+            _inShot = true;
             ShotDirection();
         }
-        else
+
+
+
+        private void ShotDirection()
         {
-            PositionObserver?.Invoke(_rigidbody.transform);
-        }
-    }
+            var mousePosition = Mouse.current.position.ReadValue();
+            var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            var mouseWorldPosition2D = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
 
+            var direction = (mouseWorldPosition2D - new Vector2(transform.position.x, transform.position.y)).normalized;
 
-    private void ShotDirection()
-    {
-        _inShot = true;
+            var angel = Vector2.Angle(direction, Vector2.up);
+            angel = direction.x < 0 ? angel : - angel;
 
-        var mousePosition = Mouse.current.position.ReadValue();
-        var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        var mouseWorldPosition2D = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
-
-        _direction = (mouseWorldPosition2D - new Vector2(_hand.position.x, _hand.position.y)).normalized;
-    }
-
-
-    private void ResetHarpoonParametrs()
-    {
-        _interactionObject = null;
-        gameObject.SetActive(false);
-        gameObject.transform.position = _hand.position;
-        gameObject.SetActive(true);
-    }
-
-
-    private void ResetHarpoon()
-    {
-        if (_interactionObject != null)
-        {
-            ResetHarpoonParametrs();
+            transform.rotation = Quaternion.Euler(0, 0, angel);
         }
     }
 }

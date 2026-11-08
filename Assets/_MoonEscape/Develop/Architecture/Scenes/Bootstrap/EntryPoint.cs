@@ -11,7 +11,6 @@ namespace Scenes
     {
         [SerializeField]
         private LifetimeScope _rootContainer;
-        private LifetimeScope _childContainer;
         private static EntryPoint _instance;
 
 
@@ -20,7 +19,7 @@ namespace Scenes
         public static void AutostartGame()
         {
             _instance = new EntryPoint();
-            _instance.RunGame();
+            _instance.RunGame().Forget();
         }
 
         private EntryPoint()
@@ -60,11 +59,9 @@ namespace Scenes
             await LoadScene(Scenes.LOADING);
             await LoadScene(Scenes.GAMEPLAY);
 
-            _childContainer.Dispose();
-            LifetimeScope childContainer = _childContainer = _rootContainer.CreateChild();
 
             var sceneEntryPoint = Object.FindAnyObjectByType<GameplayEntryPoint>();
-            sceneEntryPoint.Run(childContainer);
+            sceneEntryPoint.Run();
         }
 
 
@@ -78,10 +75,7 @@ namespace Scenes
 
         private async UniTask LoadScene(string sceneName)
         {
-            using (LifetimeScope.EnqueueParent(_rootContainer))
-            {
-                await SceneManager.LoadSceneAsync(sceneName);
-            }
+            await SceneManager.LoadSceneAsync(sceneName);
         }
     }
 }
