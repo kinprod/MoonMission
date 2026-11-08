@@ -55,15 +55,18 @@ namespace Interaction
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            _flySpeed *= _stopСoefficient;
-            _rigidbody.linearVelocity = _interaction.InteractDirection(collision, _baseDirection).normalized * _flySpeed;
-            _baseDirection = _rigidbody.linearVelocity;
-
-
-            if (_flySpeed < 0.5)
+            if (collision.gameObject.tag != "Harpoon")
             {
-                _rigidbody.linearVelocity = Vector2.zero;
-                _baseDirection = Vector2.zero;
+                _flySpeed *= _stopСoefficient;
+                _rigidbody.linearVelocity = _interaction.InteractDirection(collision, _baseDirection).normalized * _flySpeed;
+                _baseDirection = _rigidbody.linearVelocity;
+
+
+                if (_flySpeed < 0.5)
+                {
+                    _rigidbody.linearVelocity = Vector2.zero;
+                    _baseDirection = Vector2.zero;
+                }
             }
         }
 

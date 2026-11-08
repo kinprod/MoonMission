@@ -5,7 +5,7 @@ using UnityEngine.Scripting.APIUpdating;
 public class TestingPlayer : MonoBehaviour
 {
     [SerializeField]
-    private Harpoon _harpoon;
+    private TestingHarpoon _harpoon;
     
     [SerializeField]
     private float _attractSpeed = 1.0f;
