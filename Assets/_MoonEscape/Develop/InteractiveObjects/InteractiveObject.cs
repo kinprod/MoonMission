@@ -62,7 +62,7 @@ namespace Interaction
                 _baseDirection = _rigidbody.linearVelocity;
 
 
-                if (_flySpeed < 0.5)
+                if (_flySpeed < 0.005)
                 {
                     _rigidbody.linearVelocity = Vector2.zero;
                     _baseDirection = Vector2.zero;

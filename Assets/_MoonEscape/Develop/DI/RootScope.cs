@@ -8,6 +8,8 @@ namespace DI
 {
     public class RootScope : LifetimeScope
     {
+        public bool IsDebug = true;
+
         protected override void Configure(IContainerBuilder builder)
         {
             var inputManagerObject = new GameObject("INPUT_MANAGER");
@@ -16,7 +18,6 @@ namespace DI
             var inputManager = inputManagerObject.AddComponent<InputManager>();
             
             builder.RegisterComponent<InputManager>(inputManager);
-            Debug.Log("GameScope configure");
         }
     }
 }

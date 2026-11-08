@@ -1,4 +1,5 @@
-using GameInputActions;
+﻿using GameInputActions;
+using Interaction;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,55 +9,25 @@ namespace Player
 {
     public class Harpoon : MonoBehaviour
     {
-        public delegate void AtractPlayer(Transform targgetObject);
-        public event AtractPlayer AtractPlayerToObject;
+        public delegate void CollisionWithObject(GameObject targgetObject);
+        public event CollisionWithObject Collision;
 
-        private InputManager _inputManager;
+        public event Action HartoonReset;
 
-        [SerializeField]
-        private Player _player;
-        [SerializeField]
-        private Transform _harpoonSprite;
-        [SerializeField]
-        private Transform _startPosition;
-        [SerializeField]
+        private Transform _startTransform;
         private SpriteRenderer _spriteRenderer;
-        [SerializeField]
         private float _maxDistance = 10f;
-        [SerializeField]
         private float _speed = 0.1f;
 
-        private Vector2 _direction;
-
-        private Transform _interactObject = null;
 
         private bool _inShot = false;
 
-
-        [Inject]
-        private void Init(InputManager inputManager)
+        public void Init(Transform startTransform, SpriteRenderer spriteRenderer, float maxDistance, float speed)
         {
-            _inputManager = inputManager;
-        }
-
-
-        private void Awake()
-        {
-            _spriteRenderer.enabled = false;
-        }
-
-
-        private void OnEnable()
-        {
-            _inputManager.ShotPerformedAction += ShotOrAttract;
-            _player.Collision += PlayerIsCollision;
-        }
-
-
-        private void OnDisable()
-        {
-            _inputManager.ShotPerformedAction -= ShotOrAttract;
-            _player.Collision -= PlayerIsCollision;
+            _startTransform = startTransform;
+            _spriteRenderer = spriteRenderer;
+            _maxDistance = maxDistance;
+            _speed = speed;
         }
 
 
@@ -65,12 +36,12 @@ namespace Player
             _inShot = false;
             if (collision.collider.tag == "InteractiveObject")
             {
-                _interactObject = collision.transform;
+                Collision?.Invoke(collision.gameObject);
             }
             else
             {
                 _spriteRenderer.enabled = false;
-                transform.position = _startPosition.position;
+                transform.position = _startTransform.position;
             }
         }
 
@@ -81,50 +52,36 @@ namespace Player
             {
                 transform.Translate(Vector3.up * _speed);
 
-                if ((transform.position - _startPosition.position).magnitude > _maxDistance)
+                if ((transform.position - _startTransform.position).magnitude > _maxDistance)
                 {
                     _inShot = false;
                     _spriteRenderer.enabled = false;
+                    transform.position = _startTransform.position;
+                    HartoonReset?.Invoke();
                 }
             }
         }
 
-
-        private void ShotOrAttract()
+        public void Shot()
         {
-            if (!_inShot && _interactObject == null)
-            {
-                _inShot = true;
-                _spriteRenderer.enabled = true;
-                ShotDirection();
-            }
-            else if (_interactObject != null)
-            {
-                AtractPlayerToObject?.Invoke(_interactObject);
-            }
+            _inShot = true;
+            ShotDirection();
         }
+
 
 
         private void ShotDirection()
         {
-            transform.position = _startPosition.position;
-
             var mousePosition = Mouse.current.position.ReadValue();
             var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
             var mouseWorldPosition2D = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
 
-            _direction = (mouseWorldPosition2D - new Vector2(_startPosition.position.x, _startPosition.position.y)).normalized;
+            var direction = (mouseWorldPosition2D - new Vector2(transform.position.x, transform.position.y)).normalized;
 
-            var angel = Vector2.Angle(_direction, Vector2.up);
-            angel = _direction.x < 0 ? angel : - angel;
+            var angel = Vector2.Angle(direction, Vector2.up);
+            angel = direction.x < 0 ? angel : - angel;
 
             transform.rotation = Quaternion.Euler(0, 0, angel);
-        }
-
-
-        private void PlayerIsCollision()
-        {
-            _interactObject = null;
         }
     }
 }
