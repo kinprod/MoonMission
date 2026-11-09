@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class MainMenuEntryPoint : MonoBehaviour
+public class MainMenuEntryPoint : SceneEntryPoint
 {
     
-    public void Run()
+    override public void Run()
     {
 
     }

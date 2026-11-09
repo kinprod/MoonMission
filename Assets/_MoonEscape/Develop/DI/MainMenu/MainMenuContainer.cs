@@ -6,6 +6,6 @@ public class MainMenuContainer : LifetimeScope
 {
     protected override void Configure(IContainerBuilder builder)
     {
-        
+        builder.Register<MainMenuEntryPoint>(Lifetime.Scoped);
     }
 }

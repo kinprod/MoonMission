@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/_MoonEscape/Scenes/Project/Bootstrap.unity
     guid: d68bead984d63ed4e98f64ff7678e279
@@ -23,5 +20,35 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_MoonEscape/Scenes/Project/MainMenu.unity
     guid: c704b4e5e300b6d49b053a5e660fecf0
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 1.unity
+    guid: 96a99056af203a944b178a27d62ac4a3
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 2.unity
+    guid: 31538361964a8b14892eb8023aac2bbe
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 3.unity
+    guid: 105a6ea36f6ef774988d9eaccbd83c8f
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 4.unity
+    guid: 65e1b58d22d821a418c70cd57ef4173e
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 5.unity
+    guid: 01272c3757f604b4eaa0637fc5a5cdc4
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 6.unity
+    guid: 3d44f3ca233f8734794b3f016c889d16
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 7.unity
+    guid: 96f8278c570a6964cbf26168e3ede84a
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 8.unity
+    guid: 21f68d65c81f34d4ab02b310e90e7d6c
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 9.unity
+    guid: 9bb34802cc80f9f4b8696d8be6299a76
+  - enabled: 1
+    path: Assets/_MoonEscape/Scenes/Levels/Level 10.unity
+    guid: fd907b232c0b1764b8f896c77237506a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

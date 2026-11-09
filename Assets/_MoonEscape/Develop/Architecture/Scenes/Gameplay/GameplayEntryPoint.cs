@@ -5,13 +5,13 @@ using VContainer.Unity;
 
 namespace Scenes
 {
-    public class GameplayEntryPoint : MonoBehaviour
+    public class GameplayEntryPoint : SceneEntryPoint
     {
         [SerializeField]
         private LifetimeScope _gameplayContainer;
 
 
-        public void Run()
+        override public void Run()
         {
             _gameplayContainer.Container.Resolve<InputManager>().ShotPerformedAction += () => {
                 Debug.Log("Init");

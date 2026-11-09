@@ -29,6 +29,8 @@ namespace Scenes
 
         private async UniTask RunGame()
         {
+            ApplySettings();
+
 #if UNITY_EDITOR
             var sceneName = SceneManager.GetActiveScene().name;
 
@@ -60,8 +62,8 @@ namespace Scenes
             await LoadScene(Scenes.GAMEPLAY);
 
 
-            var sceneEntryPoint = Object.FindAnyObjectByType<GameplayEntryPoint>();
-            sceneEntryPoint.Run();
+            var sceneEntryPoint = Object.FindAnyObjectByType<SceneEntryPoint>();
+            sceneEntryPoint?.Run();
         }
 
 
@@ -71,14 +73,33 @@ namespace Scenes
             await LoadScene(Scenes.LOADING);
             await LoadScene(Scenes.MAIN_MENU);
 
-            var sceneEntryPoint = Object.FindAnyObjectByType<MainMenuEntryPoint>();
-            sceneEntryPoint.Run();
+            var sceneEntryPoint = Object.FindAnyObjectByType<SceneEntryPoint>();
+            sceneEntryPoint?.Run();
         }
 
 
         private async UniTask LoadScene(string sceneName)
         {
             await SceneManager.LoadSceneAsync(sceneName);
+        }
+
+        private void ApplySettings()
+        {
+            GameSettings gameSettings;
+
+            if (!PlayerPrefs.HasKey("Settings"))
+            {
+                gameSettings = new GameSettings();
+                gameSettings.MusicValue = 1f;
+
+            }
+            else
+            {
+                string json = PlayerPrefs.GetString("Settings");
+                gameSettings = JsonUtility.FromJson<GameSettings>(json);
+            }
+
+            AudioListener.volume = gameSettings.MusicValue;
         }
     }
 }
