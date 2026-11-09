@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -136,7 +136,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 891
         height: 631
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -144,32 +144,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0b42f9901d55e4810800000000000000
+      spriteID: d5bc2d5142d02f54cb433e3d1414d5c9
       internalID: 1751431661391652016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_ai0qgiai0qgiai0q_0001_Layer-1_00003_1
-      rect:
-        serializedVersion: 2
-        x: 870
-        y: 0
-        width: 21
-        height: 631
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d0ddbe93271e1960800000000000000
-      internalID: 7574517065038287057
       vertices: []
       indices: 
       edges: []
@@ -178,7 +156,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 816c3e6d3a33f6c4d96866e913de3ed1
     internalID: 0
     vertices: []
     indices: 

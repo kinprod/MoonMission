@@ -13,9 +13,6 @@ namespace Scenes
 
         override public void Run()
         {
-            _gameplayContainer.Container.Resolve<InputManager>().ShotPerformedAction += () => {
-                Debug.Log("Init");
-            };
         }
     }
 }

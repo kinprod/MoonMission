@@ -551,6 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f8c5270c037e4f838143d650bc359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuEntryPoint
+  _sceneContainer: {fileID: 603218242}
 --- !u!4 &503426071
 Transform:
   m_ObjectHideFlags: 0
@@ -736,6 +737,7 @@ MonoBehaviour:
     TypeName: DI.RootScope
   autoRun: 1
   autoInjectGameObjects:
+  - {fileID: 503426069}
   - {fileID: 2104758315}
 --- !u!4 &603218243
 Transform:
@@ -1522,6 +1524,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3135240907336438311, guid: 870e82e813525464f896d65c253aa68e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6626217429012058787, guid: 870e82e813525464f896d65c253aa68e, type: 3}
       propertyPath: m_Name
       value: Settings
