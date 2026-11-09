@@ -162,15 +162,6 @@ TextureImporter:
       color:
         serializedVersion: 2
         rgba: 4278190335
-    - name: bone_2
-      guid: 2d9ab2f7c5172e243a513bb78de0ce2e
-      position: {x: 1401.1688, y: -0.00013813553, z: 0}
-      rotation: {x: 0, y: 0, z: -0.04472876, w: 0.99899924}
-      length: 28.710747
-      parentId: 0
-      color:
-        serializedVersion: 2
-        rgba: 4278255615
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
     vertices:

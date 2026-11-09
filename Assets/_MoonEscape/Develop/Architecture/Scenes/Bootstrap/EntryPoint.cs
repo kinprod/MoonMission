@@ -70,6 +70,9 @@ namespace Scenes
             await LoadScene(Scenes.BOOTSTRAP);
             await LoadScene(Scenes.LOADING);
             await LoadScene(Scenes.MAIN_MENU);
+
+            var sceneEntryPoint = Object.FindAnyObjectByType<MainMenuEntryPoint>();
+            sceneEntryPoint.Run();
         }
 
 

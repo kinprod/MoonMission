@@ -134,42 +134,20 @@ TextureImporter:
       name: moon escape_0
       rect:
         serializedVersion: 2
-        x: 186
-        y: 932
-        width: 2028
-        height: 622
+        x: 0
+        y: 0
+        width: 2400
+        height: 1792
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 86ddc5c597e027490800000000000000
+      spriteID: f01a092889e94d5419f94b5a658ceec4
       internalID: -7750116094347780760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: moon escape_1
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 257
-        width: 2366
-        height: 584
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 197f95348880c95a0800000000000000
-      internalID: -6513321579746035823
       vertices: []
       indices: 
       edges: []
@@ -178,7 +156,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

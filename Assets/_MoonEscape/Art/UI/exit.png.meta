@@ -143,59 +143,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exit_0
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 492
-        width: 176
-        height: 196
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa2bbe6cbb525adb0800000000000000
-      internalID: -4781373940957465942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exit_1
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 492
-        width: 171
-        height: 196
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58ff16c13c0c6c320800000000000000
-      internalID: 2577959780943527813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: exit_2
       rect:
         serializedVersion: 2
-        x: 400
-        y: 492
-        width: 48
-        height: 196
+        x: 0
+        y: 328
+        width: 1078
+        height: 510
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -208,77 +164,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: exit_3
-      rect:
-        serializedVersion: 2
-        x: 451
-        y: 492
-        width: 177
-        height: 196
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 311b64d947065a830800000000000000
-      internalID: 4081774691252351251
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exit_4
-      rect:
-        serializedVersion: 2
-        x: 631
-        y: 492
-        width: 175
-        height: 196
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f29845ace0821fd0800000000000000
-      internalID: -2372692299797196044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exit_5
-      rect:
-        serializedVersion: 2
-        x: 807
-        y: 451
-        width: 170
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8097ef922539ebb00800000000000000
-      internalID: 846275761093376264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bffeb11de2dc1de41a3d83e769d0b431
     internalID: 0
     vertices: []
     indices: 
