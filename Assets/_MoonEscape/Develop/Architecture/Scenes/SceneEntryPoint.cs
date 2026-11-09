@@ -8,9 +8,6 @@ using VContainer.Unity;
 
 public abstract class SceneEntryPoint : MonoBehaviour
 {
-    [SerializeField]
-    private LifetimeScope _sceneContainer;
-
     private SceneDoors _sceneDoors;
 
     [Inject]
@@ -19,7 +16,7 @@ public abstract class SceneEntryPoint : MonoBehaviour
         _sceneDoors = sceneDoors;
     }
 
-    abstract public void Run();
+    virtual public void Run() { }
 
     virtual public async void LoadNextScene(string sceneName)
     {
@@ -35,7 +32,7 @@ public abstract class SceneEntryPoint : MonoBehaviour
         sceneEntryPoint?.Run();
     }
 
-    private async UniTask LoadScene(string sceneName)
+    protected async UniTask LoadScene(string sceneName)
     {
         await SceneManager.LoadSceneAsync(sceneName);
     }

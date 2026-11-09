@@ -6,4 +6,6 @@ public class GameSettings
 {
     [Range(0, 1)]
     public float MusicValue;
+
+    public string SavedScene = "Level 1";
 }

@@ -7,12 +7,24 @@ namespace Scenes
 {
     public class GameplayEntryPoint : SceneEntryPoint
     {
-        [SerializeField]
-        private LifetimeScope _gameplayContainer;
-
 
         override public void Run()
         {
+            GameSettings gameSettings;
+
+            if (!PlayerPrefs.HasKey("Settings"))
+            {
+                gameSettings = new GameSettings();
+                gameSettings.MusicValue = 1f;
+
+            }
+            else
+            {
+                string json = PlayerPrefs.GetString("Settings");
+                gameSettings = JsonUtility.FromJson<GameSettings>(json);
+            }
+
+            LoadScene(gameSettings.SavedScene);
         }
     }
 }

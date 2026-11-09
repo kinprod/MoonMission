@@ -4,7 +4,7 @@ using VContainer.Unity;
 
 namespace DI
 {
-    public class GameplayContainer : LifetimeScope
+    public class GameplayContainer : SceneContainer
     {
         protected override void Configure(IContainerBuilder builder)
         {

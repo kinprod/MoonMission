@@ -688,7 +688,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 2069694735}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _interactionType
       value: 1
@@ -901,7 +901,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 2069694735}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _interactionType
       value: 1
@@ -1767,7 +1767,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 2069694735}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _interactionType
       value: 1
@@ -1980,7 +1980,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 2069694735}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _interactionType
       value: 1
@@ -2194,7 +2194,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 2069694735}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _interactionType
       value: 1
@@ -2208,11 +2208,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
---- !u!1 &1485057477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5344648169772387911, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
-  m_PrefabInstance: {fileID: 1485057476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1485057478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1571454089004658143, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
@@ -2446,7 +2441,7 @@ PrefabInstance:
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 2069694735}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466232899079224604, guid: 60e4512ced97b734ba1e3e86e2ac4c41, type: 3}
       propertyPath: _interactionType
       value: 1
@@ -2702,7 +2697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2069694736}
-  - component: {fileID: 2069694735}
+  - component: {fileID: 2069694737}
   m_Layer: 0
   m_Name: GameScope
   m_TagString: Untagged
@@ -2710,27 +2705,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2069694735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069694734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2105dcdb0983b41822508e9b853ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DI.GameScope
-  parentReference:
-    TypeName: 
-  autoRun: 1
-  autoInjectGameObjects:
-  - {fileID: 1173385731}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1485057477}
-  IsDebug: 1
 --- !u!4 &2069694736
 Transform:
   m_ObjectHideFlags: 0
@@ -2746,6 +2720,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2069694737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069694734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b88f7253fffa24ab6f024fa01c441f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneContainer
+  parentReference:
+    TypeName: DI.GameplayContainer
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 1173385731}
 --- !u!1001 &571238585533338001
 PrefabInstance:
   m_ObjectHideFlags: 0
