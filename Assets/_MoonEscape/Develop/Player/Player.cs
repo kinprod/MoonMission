@@ -221,6 +221,11 @@ namespace Player
             Debug.Log("Harpoon collision");
             _targgetObject = targgetObject;
             _isShot = false;
+
+            if (targgetObject.tag != "InteractiveObject")
+            {
+                HarpoonReset();
+            }
         }
     }
 }

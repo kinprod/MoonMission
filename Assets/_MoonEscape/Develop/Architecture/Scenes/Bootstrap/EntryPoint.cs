@@ -58,7 +58,7 @@ namespace Scenes
         private async UniTask LoadAndStartGameplay()
         {
             await LoadScene(Scenes.BOOTSTRAP);
-            await LoadScene(Scenes.LOADING);
+            await LoadScene(Scenes.EMPTY);
             await LoadScene(Scenes.GAMEPLAY);
 
 
@@ -70,7 +70,7 @@ namespace Scenes
         private async UniTask LoadAndStartMainMenu()
         {
             await LoadScene(Scenes.BOOTSTRAP);
-            await LoadScene(Scenes.LOADING);
+            await LoadScene(Scenes.EMPTY);
             await LoadScene(Scenes.MAIN_MENU);
 
             var sceneEntryPoint = Object.FindAnyObjectByType<SceneEntryPoint>();

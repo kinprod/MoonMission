@@ -73,7 +73,7 @@ namespace Interaction
 
         private void FixedUpdate()
         {
-            if (_flySpeed > 0.5f && _rigidbody.linearVelocity != Vector2.zero)
+            if (_flySpeed > 0.05f && _rigidbody.linearVelocity != Vector2.zero)
             {
                 StopInMove();
             }
@@ -96,7 +96,7 @@ namespace Interaction
             _rigidbody.linearVelocity *= 0.9f;
             _flySpeed = 0.9f;
 
-            if (_flySpeed < 0.5)
+            if (_flySpeed < 0.05)
             {
                 _rigidbody.linearVelocity = Vector2.zero;
                 _baseDirection = Vector2.zero;
