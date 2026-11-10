@@ -9,6 +9,9 @@ namespace Player
 {
     public class Harpoon : MonoBehaviour
     {
+        [SerializeField]
+        private AudioSource _audioSource;
+
         public delegate void CollisionWithObject(GameObject targgetObject);
         public event CollisionWithObject Collision;
 
@@ -65,6 +68,7 @@ namespace Player
         public void Shot()
         {
             _inShot = true;
+            _audioSource.Play();
             ShotDirection();
         }
 
