@@ -11,8 +11,7 @@ namespace Player
 {
     public class Player : MonoBehaviour
     {
-
-        public event Action PlayerDeath;
+        public Action PlayerDeath;
 
         private InputManager _inputManager;
 
