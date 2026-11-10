@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameInputActions;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 
 public class PauseUI : MonoBehaviour
@@ -64,5 +65,10 @@ public class PauseUI : MonoBehaviour
     public void Exit()
     {
         _sceneEntryPoint?.LoadNextScene(Scenes.Scenes.MAIN_MENU);
+    }
+
+    public void Restart()
+    {
+        _sceneEntryPoint?.LoadNextScene(SceneManager.GetActiveScene().name);
     }
 }
