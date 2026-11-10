@@ -2150,7 +2150,7 @@ PrefabInstance:
       objectReference: {fileID: 976131718}
     - target: {fileID: 735861580328172458, guid: ded33620921f9444b9816b38e52d94e5, type: 3}
       propertyPath: _speedDamage
-      value: 1
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 735861580328172458, guid: ded33620921f9444b9816b38e52d94e5, type: 3}
       propertyPath: _harpoonSprite

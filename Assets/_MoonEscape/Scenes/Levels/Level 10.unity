@@ -2999,6 +2999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1008119552884061154, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134870173283022778, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
       propertyPath: _entryPoint
       value: 
@@ -3065,11 +3069,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172047416158374983, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 838.95123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4172047416158374983, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 771.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4172047416158374983, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3083,8 +3087,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5060673261701205807, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
+      propertyPath: m_text
+      value: "\u0412\u044B \u043F\u0440\u043E\u0448\u043B\u0438 \u0432\u0441\u0435 \u0443\u0440\u043E\u0432\u043D\u0438!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525931333339767171, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
+      propertyPath: m_text
+      value: "\u0412\u044B\u0439\u0442\u0438 \u0432 \u043C\u0435\u043D\u044E"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055572028571226453, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055572028571226453, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3778515601400279235, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a29e33c601acb842a657474c55ef16a, type: 3}
