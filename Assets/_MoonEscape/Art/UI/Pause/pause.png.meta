@@ -134,10 +134,10 @@ TextureImporter:
       name: pause_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 595
-        width: 940
-        height: 676
+        x: 0
+        y: 0
+        width: 2400
+        height: 1792
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,33 +152,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: pause_1
-      rect:
-        serializedVersion: 2
-        x: 1012
-        y: 595
-        width: 1277
-        height: 676
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df018edb8d5d09df0800000000000000
-      internalID: -175405258591694595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3c058132168c6414d8b71c04ee1866cc
     internalID: 0
     vertices: []
     indices: 

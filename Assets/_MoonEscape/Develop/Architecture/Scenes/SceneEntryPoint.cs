@@ -14,6 +14,7 @@ public abstract class SceneEntryPoint : MonoBehaviour
     private void Init(SceneDoors sceneDoors)
     {
         _sceneDoors = sceneDoors;
+        Run();
     }
 
     virtual public void Run() { }

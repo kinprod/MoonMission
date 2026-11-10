@@ -13,11 +13,14 @@ namespace GameInputActions
         public event Action ShotCanceledAction;
         public event Action AttractPerformedAction;
         public event Action AttractCanceledAction;
+        public event Action StopPerformedAction;
+        public event Action StopCancelesAction;
 
         private GameActions _inputActions;
 
         private InputAction _shot;
         private InputAction _attract;
+        private InputAction _stop;
 
 
         private void OnEnable()
@@ -27,11 +30,14 @@ namespace GameInputActions
 
             _shot = _inputActions.Gameplay.Shot;
             _attract = _inputActions.Gameplay.Attract;
+            _stop = _inputActions.Gameplay.Stop;
 
             _shot.performed += ShotPerformed;
             _shot.canceled += ShotCanceled;
             _attract.performed += AttractPerformed;
             _attract.canceled += AttractCanceled;
+            _stop.performed += StopPerformed;
+            _stop.canceled += StopCanceled;
         }
 
 
@@ -41,6 +47,8 @@ namespace GameInputActions
             _shot.canceled -= ShotCanceled;
             _attract.performed -= AttractPerformed;
             _attract.canceled -= AttractCanceled;
+            _stop.performed -= StopPerformed;
+            _stop.canceled -= StopCanceled;
         }
 
         private void ShotPerformed(InputAction.CallbackContext context)
@@ -64,6 +72,16 @@ namespace GameInputActions
         private void AttractCanceled(InputAction.CallbackContext context)
         {
             AttractCanceledAction?.Invoke();
+        }
+
+        private void StopPerformed(InputAction.CallbackContext context)
+        {
+            StopPerformedAction?.Invoke();
+        }
+
+        private void StopCanceled(InputAction.CallbackContext context)
+        {
+            StopCancelesAction?.Invoke();
         }
 
     }

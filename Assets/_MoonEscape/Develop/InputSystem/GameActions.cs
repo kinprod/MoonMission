@@ -121,6 +121,16 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": true,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""Stop"",
+                    ""type"": ""Button"",
+                    ""id"": ""32a322b0-0d6a-401d-86b6-6122ee9ff556"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -176,6 +186,17 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MousePositon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0c2b72b-b607-4813-a3b5-ee9a3d41b5ef"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -743,6 +764,7 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
         m_Gameplay_Shot = m_Gameplay.FindAction("Shot", throwIfNotFound: true);
         m_Gameplay_Attract = m_Gameplay.FindAction("Attract", throwIfNotFound: true);
         m_Gameplay_MousePositon = m_Gameplay.FindAction("MousePositon", throwIfNotFound: true);
+        m_Gameplay_Stop = m_Gameplay.FindAction("Stop", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -839,6 +861,7 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Shot;
     private readonly InputAction m_Gameplay_Attract;
     private readonly InputAction m_Gameplay_MousePositon;
+    private readonly InputAction m_Gameplay_Stop;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -862,6 +885,10 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/MousePositon".
         /// </summary>
         public InputAction @MousePositon => m_Wrapper.m_Gameplay_MousePositon;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Stop".
+        /// </summary>
+        public InputAction @Stop => m_Wrapper.m_Gameplay_Stop;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -897,6 +924,9 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
             @MousePositon.started += instance.OnMousePositon;
             @MousePositon.performed += instance.OnMousePositon;
             @MousePositon.canceled += instance.OnMousePositon;
+            @Stop.started += instance.OnStop;
+            @Stop.performed += instance.OnStop;
+            @Stop.canceled += instance.OnStop;
         }
 
         /// <summary>
@@ -917,6 +947,9 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
             @MousePositon.started -= instance.OnMousePositon;
             @MousePositon.performed -= instance.OnMousePositon;
             @MousePositon.canceled -= instance.OnMousePositon;
+            @Stop.started -= instance.OnStop;
+            @Stop.performed -= instance.OnStop;
+            @Stop.canceled -= instance.OnStop;
         }
 
         /// <summary>
@@ -1199,6 +1232,13 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMousePositon(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Stop" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStop(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

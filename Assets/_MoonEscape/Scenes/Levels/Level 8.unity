@@ -1495,6 +1495,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7356150278189375827, guid: ded33620921f9444b9816b38e52d94e5, type: 3}
   m_PrefabInstance: {fileID: 634765062}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &634765065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2523161218616964485, guid: ded33620921f9444b9816b38e52d94e5, type: 3}
+  m_PrefabInstance: {fileID: 634765062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &665915161
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,6 +3078,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1988599512068262362, guid: c4935ec05c38bf84eaa6c6dabb9d6191, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 634765065}
     - target: {fileID: 5628794461136547520, guid: c4935ec05c38bf84eaa6c6dabb9d6191, type: 3}
       propertyPath: m_Name
       value: Harpoon

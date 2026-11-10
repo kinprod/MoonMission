@@ -20,6 +20,8 @@ public class LevelEntryPoint : SceneEntryPoint
         _player.PlayerDeath -= ReloadScene;
     }
 
+    
+
     private async void ReloadScene()
     {
         await UniTask.Delay(1000);
