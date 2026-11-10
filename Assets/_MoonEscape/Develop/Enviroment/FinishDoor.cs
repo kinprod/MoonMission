@@ -10,6 +10,12 @@ public class FinishDoor : MonoBehaviour
     private int _nextLevel = 0;
     [SerializeField]
     private LevelEntryPoint _levelEntryPoint;
+    [SerializeField]
+    private WinUI _winUI;
+    [SerializeField]
+    private GameObject _winUIObject;
+
+    
 
     private Dictionary<int, string> _levels = new()
     {
@@ -26,31 +32,46 @@ public class FinishDoor : MonoBehaviour
         { 11, Scenes.Scenes.MAIN_MENU}
     };
 
+    private void OnEnable()
+    {
+        _winUI.NextSceneLoad += LoadNext;
+    }
+
+    private void OnDisable()
+    {
+        _winUI.NextSceneLoad -= LoadNext;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            _animator.SetBool("Open", true);
-            _levelEntryPoint.LoadNextScene(_levels.GetValueOrDefault(_nextLevel));
-
-            GameSettings gameSettings;
-
-            if (!PlayerPrefs.HasKey("Settings"))
-            {
-                gameSettings = new GameSettings();
-                gameSettings.SavedScene = _levels.GetValueOrDefault(_nextLevel == 11 ? 1 : _nextLevel);
-            }
-            else
-            {
-                string json = PlayerPrefs.GetString("Settings");
-                gameSettings = JsonUtility.FromJson<GameSettings>(json);
-                gameSettings.SavedScene = _levels.GetValueOrDefault(_nextLevel == 11 ? 1 : _nextLevel);
-            }
-
-            var settingsJson = JsonUtility.ToJson(gameSettings);
-            PlayerPrefs.SetString("Settings", settingsJson);
-            PlayerPrefs.Save();
+            _winUIObject.SetActive(true);
         }
+    }
+
+    private void LoadNext()
+    {
+        _animator.SetBool("Open", true);
+        _levelEntryPoint.LoadNextScene(_levels.GetValueOrDefault(_nextLevel));
+
+        GameSettings gameSettings;
+
+        if (!PlayerPrefs.HasKey("Settings"))
+        {
+            gameSettings = new GameSettings();
+            gameSettings.SavedScene = _levels.GetValueOrDefault(_nextLevel == 11 ? 1 : _nextLevel);
+        }
+        else
+        {
+            string json = PlayerPrefs.GetString("Settings");
+            gameSettings = JsonUtility.FromJson<GameSettings>(json);
+            gameSettings.SavedScene = _levels.GetValueOrDefault(_nextLevel == 11 ? 1 : _nextLevel);
+        }
+
+        var settingsJson = JsonUtility.ToJson(gameSettings);
+        PlayerPrefs.SetString("Settings", settingsJson);
+        PlayerPrefs.Save();
     }
 }
