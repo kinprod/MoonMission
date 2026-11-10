@@ -152,8 +152,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.635024, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1207455762950195975}
   - {fileID: 4579437121810561343}
@@ -239,7 +239,24 @@ MonoBehaviour:
   _harpoonTransform: {fileID: 0}
   _harpoonStartPosition: {fileID: 4579437121810561343}
   _harpoonSprite: {fileID: 0}
-  _maxHarpoonDistance: 15
+  _maxHarpoonDistance: 20
   _rigidbody: {fileID: 2526727349316041817}
+  _spriteRenderer: {fileID: 5495881718998103238}
   _harpoonSpeed: 0.2
   _attractBoost: 3
+  _stopValue: 0.9
+  _startPosition: {fileID: 0}
+  _speedDamage: 0.08
+  _hpToSprite:
+  - key: 5
+    value: {fileID: 21300000, guid: 590d675ca269bdc4ead581a04ce2c908, type: 3}
+  - key: 4
+    value: {fileID: 21300000, guid: 7a345199ec71a2442bf6999589cce25c, type: 3}
+  - key: 3
+    value: {fileID: 21300000, guid: 8fc517236f7cb784b883d3e578626b1e, type: 3}
+  - key: 0
+    value: {fileID: 21300000, guid: e0a6506821c9682498533d6250cd883e, type: 3}
+  - key: 2
+    value: {fileID: 21300000, guid: 17a461763ae02414cb27667f3bb425c9, type: 3}
+  - key: 1
+    value: {fileID: 21300000, guid: 4b063de09f1e6554cafbfb8f01028323, type: 3}

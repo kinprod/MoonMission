@@ -8,7 +8,7 @@ using VContainer.Unity;
 
 public abstract class SceneEntryPoint : MonoBehaviour
 {
-    private SceneDoors _sceneDoors;
+    protected SceneDoors _sceneDoors;
 
     [Inject]
     private void Init(SceneDoors sceneDoors)

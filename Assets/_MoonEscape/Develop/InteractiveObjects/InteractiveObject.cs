@@ -92,14 +92,16 @@ namespace Interaction
         private async UniTask Stopping()
         {
             await UniTask.Delay(1000);
-
-            _rigidbody.linearVelocity *= 0.9f;
-            _flySpeed = 0.9f;
-
-            if (_flySpeed < 0.05)
+            if (_rigidbody != null)
             {
-                _rigidbody.linearVelocity = Vector2.zero;
-                _baseDirection = Vector2.zero;
+                _rigidbody.linearVelocity *= 0.9f;
+                _flySpeed = 0.9f;
+
+                if (_flySpeed < 0.05)
+                {
+                    _rigidbody.linearVelocity = Vector2.zero;
+                    _baseDirection = Vector2.zero;
+                }
             }
         }
 

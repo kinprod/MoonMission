@@ -2,13 +2,18 @@
 using GameInputActions;
 using Interaction;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace Player
 {
     public class Player : MonoBehaviour
     {
+
+        public event Action PlayerDeath;
+
         private InputManager _inputManager;
 
         [Header("Harpoon")]
@@ -27,6 +32,8 @@ namespace Player
         [Header("Components")]
         [SerializeField]
         private Rigidbody2D _rigidbody;
+        [SerializeField]
+        private SpriteRenderer _spriteRenderer;
 
         [Space]
         [Header("Parametrs")]
@@ -34,6 +41,19 @@ namespace Player
         private float _harpoonSpeed = 2f;
         [SerializeField]
         private float _attractBoost = 0.5f;
+        [SerializeField]
+        private float _stopValue = 0.9f;
+        [SerializeField]
+        private Transform _startPosition;
+
+        [Space]
+        [Header("Sprites - HP")]
+        [SerializeField]
+        private float _speedDamage = 0.1f;
+        [SerializeField]
+        private Dictionary<int, Sprite> _hpToSprite;
+
+        private int _health;
 
         private GameObject _targgetObject;
 
@@ -43,29 +63,37 @@ namespace Player
 
         private UniTask _playerBoostTask = UniTask.CompletedTask;
         private UniTask _objectBoostTask = UniTask.CompletedTask;
+        private UniTask _stopTask = UniTask.CompletedTask;
 
         private InteractiveObject _interactiveObject;
         private Rigidbody2D _interactiveObjectRigidbody;
+
 
 
         [Inject]
         private void Init(InputManager inputManager)
         {
             _inputManager = inputManager;
+            _inputManager.ShotPerformedAction += ShotPerformed;
+            _inputManager.ShotCanceledAction += ShotCanceled;
+            _inputManager.AttractPerformedAction += AttractPerformed;
+            _inputManager.AttractCanceledAction += AttractCanceled;
         }
 
         private void Awake()
         {
             _harpoon.Init(_harpoonStartPosition, _harpoonSprite, _maxHarpoonDistance, _harpoonSpeed);
             HarpoonReset();
+            _health = 5;
+
+            if (_startPosition != null)
+            {
+                transform.position = _startPosition.position;
+            }
         }
 
         private void OnEnable()
         {
-            _inputManager.ShotPerformedAction += ShotPerformed;
-            _inputManager.ShotCanceledAction += ShotCanceled;
-            _inputManager.AttractPerformedAction += AttractPerformed;
-            _inputManager.AttractCanceledAction += AttractCanceled;
             _harpoon.Collision += HarpoonCollision;
             _harpoon.HartoonReset += HarpoonReset;
         }
@@ -88,6 +116,50 @@ namespace Player
                 _rigidbody.linearDamping = 100;
                 _rigidbody.angularDamping = 100;
             }
+
+            CheckHealth(collision.gameObject);
+        }
+
+        private void CheckHealth(GameObject collisionObject)
+        {
+            Rigidbody2D collisionRigidbody = collisionObject.GetComponent<Rigidbody2D>();
+
+            if (collisionRigidbody != null)
+            {
+                var speed = (collisionRigidbody.linearVelocity - _rigidbody.linearVelocity).magnitude;
+
+                if (speed > _speedDamage)
+                {
+                    if (_health - 1 > 0)
+                    {
+                        _health -= 1;
+                        _spriteRenderer.sprite = _hpToSprite.GetValueOrDefault(_health);
+                    }
+                    else if (_health - 1 == 0)
+                    {
+                        _health -= 1;
+                        _spriteRenderer.sprite = _hpToSprite.GetValueOrDefault(_health);
+                        PlayerDeath?.Invoke();
+                    }
+                }
+            }
+            else
+            {
+                var speed = _rigidbody.linearVelocity.magnitude;
+
+                if (speed > _speedDamage)
+                {
+                    if (_health - 1 > 0)
+                    {
+                        _health -= 1;
+                        _spriteRenderer.sprite = _hpToSprite.GetValueOrDefault(_health);
+                    }
+                    else
+                    {
+                        PlayerDeath?.Invoke();
+                    }
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -99,6 +171,33 @@ namespace Player
             else if (_isAttractObject)
             {
                 ObjectBoostInMove();
+            }
+            else if (_rigidbody.linearVelocity != Vector2.zero)
+            {
+                StopInMove();
+            }
+        }
+
+        private void StopInMove()
+        {
+            if (_stopTask.Status == UniTaskStatus.Succeeded)
+            {
+                _stopTask = Stopping();
+            }
+        }
+
+
+        private async UniTask Stopping()
+        {
+            await UniTask.Delay(1000);
+            if (_rigidbody != null)
+            {
+                _rigidbody.linearVelocity *= _stopValue;
+
+                if (_rigidbody.linearVelocity.magnitude < 0.05)
+                {
+                    _rigidbody.linearVelocity = Vector2.zero;
+                }
             }
         }
 
