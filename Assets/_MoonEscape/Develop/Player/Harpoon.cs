@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VContainer;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Player
 {
@@ -22,6 +23,14 @@ namespace Player
         private float _maxDistance = 10f;
         private float _speed = 0.1f;
 
+        [SerializeField]
+        private LineRenderer _line;
+
+        [SerializeField]
+        private Transform _harpoonSource;
+        [SerializeField]
+        private Transform _playerTransform;
+
 
         private bool _inShot = false;
 
@@ -31,6 +40,8 @@ namespace Player
             _spriteRenderer = spriteRenderer;
             _maxDistance = maxDistance;
             _speed = speed;
+
+            _line.positionCount = 2;
         }
 
 
@@ -53,6 +64,7 @@ namespace Player
         {
             if (_inShot)
             {
+                DrawLine();
                 transform.Translate(Vector3.up * _speed);
 
                 if ((transform.position - _startTransform.position).magnitude > _maxDistance)
@@ -62,7 +74,21 @@ namespace Player
                     transform.position = _startTransform.position;
                     HartoonReset?.Invoke();
                 }
+
             }
+        }
+
+        public void DrawLine()
+        {
+            Debug.Log("Draw");
+            _line.SetPosition(0, _playerTransform.position);
+            _line.SetPosition(1, _harpoonSource.position);
+        }
+
+        public void DontDrawLine()
+        {
+            _line.SetPosition(0, _playerTransform.position);
+            _line.SetPosition(1, _playerTransform.position);
         }
 
         public void Shot()
@@ -83,7 +109,7 @@ namespace Player
             var direction = (mouseWorldPosition2D - new Vector2(transform.position.x, transform.position.y)).normalized;
 
             var angel = Vector2.Angle(direction, Vector2.up);
-            angel = direction.x < 0 ? angel : - angel;
+            angel = direction.x < 0 ? angel : -angel;
 
             transform.rotation = Quaternion.Euler(0, 0, angel);
         }

@@ -175,6 +175,15 @@ namespace Player
             {
                 StopInMove();
             }
+
+            if (_targgetObject == null && !_isShot)
+            {
+                _harpoon.DontDrawLine();
+            }
+            else if (!_isShot)
+            {
+                _harpoon.DrawLine();
+            }
         }
 
         private void StopInMove()

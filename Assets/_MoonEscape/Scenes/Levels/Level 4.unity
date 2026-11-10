@@ -1511,6 +1511,68 @@ Transform:
   - {fileID: 1337544708}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &569085718
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.35014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7811
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918342734431233226, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745196394954927320, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+      propertyPath: m_Name
+      value: Line
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+--- !u!120 &569085719 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 3741605003403924669, guid: 0464f71371368214aa0555689a0256d8, type: 3}
+  m_PrefabInstance: {fileID: 569085718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &612123894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,6 +1904,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Harpoon
       objectReference: {fileID: 0}
+    - target: {fileID: 8714872867398876190, guid: c4935ec05c38bf84eaa6c6dabb9d6191, type: 3}
+      propertyPath: _line
+      value: 
+      objectReference: {fileID: 569085719}
+    - target: {fileID: 8714872867398876190, guid: c4935ec05c38bf84eaa6c6dabb9d6191, type: 3}
+      propertyPath: _harpoonSource
+      value: 
+      objectReference: {fileID: 643311248}
+    - target: {fileID: 8714872867398876190, guid: c4935ec05c38bf84eaa6c6dabb9d6191, type: 3}
+      propertyPath: _playerTransform
+      value: 
+      objectReference: {fileID: 2132917973}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1868,6 +1942,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e165532ce2f445b4b9c912c9e41818e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Harpoon
+--- !u!4 &643311248 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5878431041622762073, guid: c4935ec05c38bf84eaa6c6dabb9d6191, type: 3}
+  m_PrefabInstance: {fileID: 643311244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &674503577
 GameObject:
   m_ObjectHideFlags: 0
@@ -5853,6 +5932,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6b4a7c2aa05c041a230de344c27455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Player
+--- !u!4 &2132917973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2523161218616964485, guid: ded33620921f9444b9816b38e52d94e5, type: 3}
+  m_PrefabInstance: {fileID: 2132917970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2141444166
 GameObject:
   m_ObjectHideFlags: 0
@@ -5894,6 +5978,7 @@ SceneRoots:
   - {fileID: 2132917970}
   - {fileID: 340583021}
   - {fileID: 1708830096}
+  - {fileID: 569085718}
   - {fileID: 1801477894}
   - {fileID: 843377017}
   - {fileID: 550277154}
